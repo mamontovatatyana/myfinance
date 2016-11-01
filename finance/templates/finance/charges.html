@@ -1,0 +1,31 @@
+{% extends "finance/base.html" %}
+{% block content %}
+    <h2>Hello, User!</h2>
+    <form action='/' method="post">
+        {% csrf_token %}
+        <h2>Insert date and value of transaction</h2>
+            <h4>{{ field.errors }}</h4>
+        <p></p>
+
+           <h3> Date of the transaction</h3> {{ form.date }} <h3>Value of the transaction </h3> {{form.value}}
+        <p></p>
+        <button type="submit">Отправить</button>
+    </form>
+    <h2>Сообщение отладки (info)</h2>
+    {{ info }}
+{% for field in form.visible_fields %}
+            <h3>Поле {{ field.label }}</h3>
+            <h4>Ошибки</h4>
+            {% for error in field.errors %}
+                {% if forloop.first %}
+                <ul>
+                {% endif %}
+                <li>{{ error }}</li>
+                {% if forloop.first %}
+                </ul>
+                {% endif %}
+            {% empty %}
+                Отсутствуют
+            {% endfor %}
+        {% endfor %}
+{% endblock %}

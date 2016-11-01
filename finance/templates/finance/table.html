@@ -1,0 +1,27 @@
+{% extends "finance/base.html" %}
+{% block content %}
+<h2>List of operations</h2>
+<table border="1">
+<caption>Income </caption>
+    <tr><th>Date</th><th>Value</th></tr>
+    {% for each in income %}
+    <tr>
+        {% for i in each%}
+        <td>{{i}}</td>
+    {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+<p></p>
+<table border="1">
+    <caption>Outcome</caption>
+    <tr><th>Date</th><th>Value</th></tr>
+    {% for each in outcome %}
+    <tr>
+        {% for i in each%}
+        <td>{{i}}</td>
+    {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
