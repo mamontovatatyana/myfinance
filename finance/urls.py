@@ -1,7 +1,7 @@
 from django.conf.urls import url
-from finance.views import front_page, charges_page
+from finance.views import get_value_date, table_page
 
 urlpatterns = [
-	url(r'^$', front_page),
-	url(r'^charges/$', charges_page),
+	url(r'^$', get_value_date),
+	url(r'^charges/$', table_page),
 ]
